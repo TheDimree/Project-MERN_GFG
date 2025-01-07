@@ -1,13 +1,14 @@
 import express from "express"
+import appConfig from "./config/appConfig.js"
 
-const PORT = 8008;
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Hello, World!");
+  // res.send("Hello, World!");
+  res.json({"err":false, "msg":"My Application"});
 });
 
-app.listen(PORT, (err)=> {
+app.listen(appConfig.PORT, (err)=> {
     if(err) return err
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server is running on port ${appConfig.PORT}`);
 });
