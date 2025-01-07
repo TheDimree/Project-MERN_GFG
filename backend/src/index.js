@@ -8,6 +8,10 @@ app.get("/", (req, res) => {
   res.json({"err":false, "msg":"My Application"});
 });
 
+app.get("/products", (req, res)=> {
+  res.json({"err":false, "msg":"My Products"}) 
+})
+
 app.listen(appConfig.PORT, (err)=> {
     if(err) return err
     console.log(`Server is running on port ${appConfig.PORT}`);
