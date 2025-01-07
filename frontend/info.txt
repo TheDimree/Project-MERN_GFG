@@ -1,0 +1,24 @@
+-> It is created using vite not CRA 
+
+-> default running command: npm run dev
+    -> Customise the scripts to run your application using npm start:
+        -> "start": "vite",
+        -> "dev": "vite",
+
+-> Packages: npm i react-router-dom axios
+
+-> Using MaterialUI : https://mui.com/
+    -> Install below all these from: https://mui.com/material-ui/getting-started/installation/
+        -> npm install @mui/material @emotion/react @emotion/styled
+        -> npm install @mui/material @mui/styled-engine-sc styled-components
+        -> npm install @fontsource/roboto
+        -> Import these in main/index.js 
+            import '@fontsource/roboto/300.css';
+            import '@fontsource/roboto/400.css';
+            import '@fontsource/roboto/500.css';
+            import '@fontsource/roboto/700.css';
+        -> npm install @mui/icons-material
+
+
+
+
