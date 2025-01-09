@@ -5,7 +5,8 @@
         -> "start": "vite",
         -> "dev": "vite",
 
--> Packages: npm i react-router-dom axios
+-> Packages: npm i react-router-dom axios jwt-decode
+    -> jwt-decode package is used to decode the token in react.
 
 -> Using MaterialUI : https://mui.com/
     -> Install below all these from: https://mui.com/material-ui/getting-started/installation/
@@ -22,3 +23,4 @@
 
 
 
+child routing not required "/" = onClick={()=> navigate("products")}
