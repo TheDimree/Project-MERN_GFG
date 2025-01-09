@@ -2,6 +2,7 @@ import express from "express"
 import appConfig from "./config/appConfig.js"
 import connection from "./config/Db.js";
 import AuthRouter from "./routes/AuthoRouter.js"
+import ProductRouter from "./routes/ProductRouter.js"
 import cors from "cors"
 
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use("/api/v1/auth", AuthRouter)
+app.use("/api/v1/products", ProductRouter)
 
 const startServer = () => {
   connection()

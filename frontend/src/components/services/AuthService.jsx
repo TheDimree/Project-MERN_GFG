@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { jwtDecode } from "jwt-decode";
 
 const URL = "http://localhost:8008/api/v1/auth"
 const signUpService = (data) => {
@@ -13,8 +14,24 @@ const getToken = () => {
     return localStorage.getItem('_token')
 }
 
-const isLoggedIn = () => {
-    return getToken() !== undefined ? true : false;
+const getDataFromToken = () => {
+    try {
+        return jwtDecode(getToken())
+    } catch(err) {
+        return null;
+    }
 }
 
-export {signInService, signUpService, getToken, isLoggedIn}
+const isLoggedIn = () => {
+    return getToken() !== null ? true : false;
+}
+
+const isAdmin = () => {
+    const user = getDataFromToken();
+    try {
+        return user.role === 'admin'? true : false;
+    } catch (err) {
+        return null;
+    }
+}
+export {signInService, signUpService, getToken, isLoggedIn, getDataFromToken, isAdmin}

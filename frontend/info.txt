@@ -6,7 +6,7 @@
         -> "dev": "vite",
 
 -> Packages: npm i react-router-dom axios jwt-decode
-    -> jwt-decode package is used to decode the token in react.
+    -> jwt-decode package is used to decode the token in react = https://www.npmjs.com/package/jwt-decode
 
 -> Using MaterialUI : https://mui.com/
     -> Install below all these from: https://mui.com/material-ui/getting-started/installation/

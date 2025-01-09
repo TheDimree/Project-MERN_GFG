@@ -6,9 +6,9 @@ const dashboard = () => {
     return (
         <>
             <Navbar />
-            <continer>
+            <div>
                 <Outlet />
-            </continer>
+            </div>
         </>
     )
 }
