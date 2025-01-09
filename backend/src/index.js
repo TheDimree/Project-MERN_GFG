@@ -1,9 +1,9 @@
 import express from "express"
+import cors from "cors"
 import appConfig from "./config/appConfig.js"
 import connection from "./config/Db.js";
 import AuthRouter from "./routes/AuthoRouter.js"
 import ProductRouter from "./routes/ProductRouter.js"
-import cors from "cors"
 
 const app = express();
 

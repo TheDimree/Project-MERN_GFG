@@ -5,4 +5,8 @@ const getAllProducts = () => {
     return axios.get(`${URL}`)
 }
 
-export {getAllProducts}
+const addProduct = (product) => {
+    return axios.post(`${URL}/add`, product)
+}
+
+export {getAllProducts, addProduct}
