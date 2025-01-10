@@ -16,10 +16,10 @@ const addProduct = async (req, res) => {
         newProduct = {...newProduct, "image": req.file.filename}
         const product = new ProductModel(newProduct)
         await product.save()
-        return res.json({ "err": false, "msg": "Product added successfully" })
+        return res.json({ "success": true, "msg": "Product added successfully" })
     } catch (err) {
         if (err instanceof multer.MulterError) {
-            return res.status(400).json({ "err": true, "msg": err.message });
+            return res.status(400).json({ "success": false, "msg": err.message });
         }
         console.error(err);
         return res.status(500).json({ "err": true, "msg": "Something went wrong" });

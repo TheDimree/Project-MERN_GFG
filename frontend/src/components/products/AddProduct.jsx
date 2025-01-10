@@ -1,11 +1,12 @@
 import { Container, Box, Typography, TextField, Button, Link, Alert } from '@mui/material'
 import { useState } from 'react'
 import { addProduct } from '../services/ProductServices'
-// import { useNavigate } from 'react-router-dom'
+
 const AddProduct = () => {
 
   const [state, setState] = useState({ name: '', price: '', category: '', features: '', image: '', quantity: '' })
   const [error, setError] = useState('')
+  const [successMsg, setSuccessMsg] = useState('')
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -28,8 +29,17 @@ const AddProduct = () => {
         formData.append('features', state.features)
         formData.append('image', state.image)
         formData.append('quantity', state.quantity)
-        addProduct(formData)
-          .then(response => console.log(response.data))
+        console.log("formData to be sent: ", formData)
+        // addProduct(formData)
+          .then(response => {
+            if(response.data.success) {
+              console.log("success: ", response.data.success)
+              setSuccessMsg(response.data.success)
+            } else {
+              setSuccessMsg(response.data.success)
+            }
+            console.log(response.data)
+          })
           .catch(err => console.log(err))
 
       } else {
@@ -54,6 +64,7 @@ const AddProduct = () => {
           Add New Product
         </Typography>
         {error && <Alert severity="error">{error}</Alert>}
+        {successMsg && <Alert severity="success">{error}</Alert>}
         <Box component="form" sx={{ mt: 1, alignItems: "center" }} onSubmit={handleSubmit}>
           <TextField margin="normal" id="name" label="Product name" name="name" autoComplete="name" autoFocus required fullWidth onChange={handleChange} />
           <TextField margin="normal" id="price" label="Product price" name="price" autoComplete="price" autoFocus required fullWidth onChange={handleChange} />
