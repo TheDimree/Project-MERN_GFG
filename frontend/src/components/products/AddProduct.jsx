@@ -25,7 +25,7 @@ const AddProduct = () => {
         formData.append('name', state.name)
         formData.append('price', state.price)
         formData.append('category', state.category)
-        formData.append('features', state.feature)
+        formData.append('features', state.features)
         formData.append('image', state.image)
         formData.append('quantity', state.quantity)
         addProduct(formData)

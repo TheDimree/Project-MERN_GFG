@@ -1,9 +1,10 @@
 import myModel from "../models/AuthModel.js";
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import appConfig from "../config/appConfig.js";
+
 const login = async(req, res) => {
     try {
+        JWT_SECRET = process.env.JWT_SECRET ?? "your_super_secret_key_2414677793!@#$%^&*()";
         const {email, password} = req.body;
         const user = await myModel.findOne({email: email})
         if(!user) {
@@ -19,7 +20,7 @@ const login = async(req, res) => {
             email: user.email,
             role: user.role
         }
-        let token = jwt.sign(payload, appConfig.JWT_SECRET, {expiresIn:'1hr'})
+        let token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn:'1hr'})
         res.json({"err": false, "msg": "Login successful with token", "token": token})   
     } catch(err) {
         console.error("Error during login:", err); // Log the error details
