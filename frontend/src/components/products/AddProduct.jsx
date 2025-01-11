@@ -29,12 +29,12 @@ const AddProduct = () => {
         formData.append('features', state.features)
         formData.append('image', state.image)
         formData.append('quantity', state.quantity)
-        console.log("formData to be sent: ", formData)
-        // addProduct(formData)
+        // console.log("formData to be sent: ", formData)
+        addProduct(formData)
           .then(response => {
             if(response.data.success) {
               console.log("success: ", response.data.success)
-              setSuccessMsg(response.data.success)
+              setSuccessMsg("Product added successfully")
             } else {
               setSuccessMsg(response.data.success)
             }
@@ -64,7 +64,7 @@ const AddProduct = () => {
           Add New Product
         </Typography>
         {error && <Alert severity="error">{error}</Alert>}
-        {successMsg && <Alert severity="success">{error}</Alert>}
+        {successMsg && <Alert severity="success">{successMsg} </Alert>}
         <Box component="form" sx={{ mt: 1, alignItems: "center" }} onSubmit={handleSubmit}>
           <TextField margin="normal" id="name" label="Product name" name="name" autoComplete="name" autoFocus required fullWidth onChange={handleChange} />
           <TextField margin="normal" id="price" label="Product price" name="price" autoComplete="price" autoFocus required fullWidth onChange={handleChange} />
