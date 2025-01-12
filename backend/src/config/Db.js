@@ -4,13 +4,13 @@ const DB_URL = process.env.CON_URL ?? "mongodb://localhost:27017/merndemoproject
 
 // console.log(DB_URL)
 
-const db_connection = async () => {
+const connectDB = async () => {
     try {
         await mongoose.connect(DB_URL);
-        console.log("MongoDB is connected successfully");
-    }
-    catch (err) {
-        console.log(`MongoDB connection error`);
+        console.log('MongoDB connected');
+    } catch (err) {
+        console.error('Error connecting to MongoDB:', err);
+        setTimeout(connectDB, 5000); // Retry connection after 5 seconds
     }
 }
-export default db_connection;
+export default connectDB;

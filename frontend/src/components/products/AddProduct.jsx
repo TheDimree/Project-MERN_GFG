@@ -1,12 +1,14 @@
 import { Container, Box, Typography, TextField, Button, Link, Alert } from '@mui/material'
 import { useState } from 'react'
 import { addProduct } from '../services/ProductServices'
+import { useNavigate } from 'react-router-dom'
 
 const AddProduct = () => {
 
   const [state, setState] = useState({ name: '', price: '', category: '', features: '', image: '', quantity: '' })
   const [error, setError] = useState('')
   const [successMsg, setSuccessMsg] = useState('')
+  const navigate= useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,7 +23,7 @@ const AddProduct = () => {
     event.preventDefault();
     // console.log(state)
     if (state.image != '') {
-      if (state.image.type === 'image/jpeg' || state.image.type === 'image/jpg' || state.image.type === 'image/png' || state.image.type === 'image/gif') {
+      if (state.image.type === 'image/jpeg' || state.image.type === 'image/jpg' || state.image.type === 'image/png' || state.image.type === 'image/gif' || state.image.type === 'image/webp') {
         let formData = new FormData();  // * FormData() is used when we send data with the attactments to the server.
         formData.append('name', state.name)
         formData.append('price', state.price)
@@ -41,6 +43,7 @@ const AddProduct = () => {
             console.log(response.data)
           })
           .catch(err => console.log(err))
+          navigate("/dashboard/products")
 
       } else {
         setError('Supports only jpeg | jpg | png | gif formats')

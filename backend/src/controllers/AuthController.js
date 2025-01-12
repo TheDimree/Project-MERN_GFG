@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs'
 
 const login = async(req, res) => {
     try {
-        JWT_SECRET = process.env.JWT_SECRET ?? "your_super_secret_key_2414677793!@#$%^&*()";
+        const JWT_SECRET = process.env.JWT_SECRET ?? "your_super_secret_key_2414677793!@#$%^&*()";
         const {email, password} = req.body;
         const user = await myModel.findOne({email: email})
         if(!user) {
