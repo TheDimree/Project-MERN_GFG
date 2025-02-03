@@ -5,7 +5,7 @@ const dashboard = () => {
     return (
         <>
             <Navbar />
-            <p>This project is created to understand user authentication and authorization, as well as product management.</p>
+            <p>This project explores user authentication, authorization, and product management with MongoDB Atlas</p>
             <div>
                 <Outlet />
             </div>
