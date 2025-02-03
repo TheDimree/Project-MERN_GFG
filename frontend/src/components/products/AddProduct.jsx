@@ -40,7 +40,7 @@ const AddProduct = () => {
             } else {
               setSuccessMsg(response.data.success)
             }
-            console.log(response.data)
+            // console.log(response.data)
           })
           .catch(err => console.log(err))
           navigate("/dashboard/products")

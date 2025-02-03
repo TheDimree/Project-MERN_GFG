@@ -13,7 +13,7 @@ const ProductsPage = () => {
       .then(response => {
         setProducts(response.data.products)
         setLoading(false)
-        console.log(response.data.products)
+        // console.log(response.data.products)
       })
       .catch(err => console.log(err))
   }, []);

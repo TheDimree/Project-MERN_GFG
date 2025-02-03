@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const URL = "http://localhost:8008/api/v1/products"
+// const URL = "http://localhost:8008/api/v1/products"
+const URL = "https://project-mern-gfg.onrender.com/api/v1/products"
+
 const getAllProducts = () => {
     return axios.get(`${URL}`)
 }

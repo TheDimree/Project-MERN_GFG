@@ -18,7 +18,8 @@ const SignUp = () => {
     signUpService(state)
       .then(response => {
         if (response.data.err) {
-          setError(response.data.err)
+          setError(response.data.msg)
+          console.log("error: "+response.data.msg)
           return
         }
         navigate("/")

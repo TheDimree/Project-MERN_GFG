@@ -36,18 +36,18 @@ const register = async (req, res) => {
         if(existingUser) {
             return res.json({"err": true, "msg": "User already exists"})
         }
-        // check if the password is strong enough
-        const complexityCheck = await bcrypt.getProgress(data.password);
-        if(complexityCheck.score < 30) {
-            return res.json({"err": true, "msg": "Password is too weak"})
-        }
+        // * check if the password is strong enough
+        // const complexityCheck = await bcrypt.getProgress(data.password);
+        // if(complexityCheck.score < 30) {
+        //     return res.json({"err": true, "msg": "Password is too weak"})
+        // }
 
         // remove any special characters from the password
         const cleanPassword = data.password.replace(/[^a-zA-Z0-9]/g, '');
 
-        // check if the password is at least 8 characters long
-        if(cleanPassword.length < 8) {
-            return res.json({"err": true, "msg": "Password must be at least 8 characters long"})
+        // check if the password is at least 4 characters long
+        if(cleanPassword.length < 4) {
+            return res.json({"err": true, "msg": "Password must be at least 4 characters long"})
         }
         // encrypting the password
         const salt = await bcrypt.genSalt(10)
@@ -60,7 +60,7 @@ const register = async (req, res) => {
         res.json({"err": false, "msg": "Registration successful"})
     } catch(err) {
         console.error("Error during registration:", err); // Log the error details
-        res.json({ "err": true, "msg": "Already exists or something went wrong." });
+        res.json({ "err": true, "msg": err });
     }
 }
 

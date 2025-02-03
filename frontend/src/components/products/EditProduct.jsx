@@ -37,7 +37,7 @@ const EditProduct = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("handle Submit")
+    // console.log("handle Submit")
     // console.log(state)
 
     if (state.image != '') {
@@ -82,7 +82,7 @@ const EditProduct = () => {
       updateProduct(id, formData)
         .then(response => {
           if (response.data.success) {
-            console.log("Response: ", response.data.product)
+            // console.log("Response: ", response.data.product)
             setSuccessMsg("Product updated successfully")
           } else {
             setSuccessMsg(response.data.success)
