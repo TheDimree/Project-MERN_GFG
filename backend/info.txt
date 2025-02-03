@@ -17,6 +17,7 @@ Use nodejs configure and set commit then pull node.js.yml file then merge.
 
 Deployment: 
 
-atlas = mongodb+srv://thedimri:<db_password>@cluster.g217b.mongodb.net/
-	-> mongodb+srv://thedimri:myPassword@cluster.g217b.mongodb.net/?retryWrites=true&w=majority
-		-> "...?retryWrites=true&w=majority" part in the MongoDB connection string is optional but recommended to 	improve reliability without additional code to handle retries manually and to increases data durability and consistency across the replica set.
+atlas = mongodb+srv://thedimri:<db_password>@cluster.g217b.mongodb.net/database_name/
+	-> mongodb+srv://thedimri:myPassword@cluster.g217b.mongodb.net/merndemoproject?retryWrites=true&w=majority&appName=Cluster		
+		-> "merndemoproject" is the db_name here.
+		-> "...?retryWrites=true&w=majority&appName=Cluster" part in the MongoDB connection string is optional but recommended to 	improve reliability without additional code to handle retries manually and to increases data durability and consistency across the replica set.
