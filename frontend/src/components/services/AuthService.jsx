@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
 
-const URL = "http://localhost:8008/api/v1/auth"
-// const URL = "https://project-mern-gfg.onrender.com/api/v1/auth";
+// const URL = "http://localhost:8008/api/v1/auth"
+const URL = "https://project-mern-gfg.onrender.com/api/v1/auth";
 const signUpService = (data) => {
     return axios.post(`${URL}/signup`, data)
 }

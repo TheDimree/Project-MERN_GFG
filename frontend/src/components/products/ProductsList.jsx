@@ -42,7 +42,8 @@ export default function ProductsList({ products, setProducts }) {
                             component="img"
                             alt={product.name}
                             height="140"
-                            image={`http://localhost:8008/images/${product.image}`}  // poosible only because of express.use(static()) in server file
+                            // image={`http://localhost:8008/images/${product.image}`}  // poosible only because of express.use(static()) in server file
+                            image={`https://project-mern-gfg.onrender.com/images/${product.image}`}  // poosible only because of express.use(static()) in server file
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">

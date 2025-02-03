@@ -56,7 +56,7 @@ const register = async (req, res) => {
         data.password = hashedPassword;
         const user = new myModel(data);
         await user.save();
-        console.log("User registered:", user)
+        // console.log("User registered:", user)
         res.json({"err": false, "msg": "Registration successful"})
     } catch(err) {
         console.error("Error during registration:", err); // Log the error details
